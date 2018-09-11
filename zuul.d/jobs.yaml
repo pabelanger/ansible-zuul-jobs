@@ -4,6 +4,9 @@
     abstract: true
     description: |
       The base job for the Ansible Network installation of Zuul.
+    pre-run: playbooks/base/pre.yaml
+    roles:
+      - zuul: git.openstack.org/openstack-infra/zuul-jobs
 
 ##
 # `ansible-test sanity`
