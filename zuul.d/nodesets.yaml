@@ -8,4 +8,4 @@
     name: fedora-latest
     nodes:
       - name: fedora-28
-        label: ansible-fedora-28
+        label: ansible-fedora-28-1vcpu
