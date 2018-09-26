@@ -13,3 +13,11 @@
     - name: Run validate-host role
       include_role:
         name: validate-host
+
+    - name: Run configure-swap role
+      include_role:
+        name: configure-swap
+
+    - name: Run log-inventory role
+      include_role:
+        name: log-inventory
