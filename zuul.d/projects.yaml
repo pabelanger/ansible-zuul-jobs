@@ -4,6 +4,9 @@
     check:
       jobs:
         - tox-linters
+        - tox-py27
+        - tox-py35
+        - tox-py36
     gate:
       jobs:
         - tox-linters
