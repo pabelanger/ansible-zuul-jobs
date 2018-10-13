@@ -6,6 +6,10 @@
       The base job for the Ansible Network installation of Zuul.
     pre-run: playbooks/base/pre.yaml
 
+- job:
+    name: dco-license
+    run: playbooks/dco-license/run.yaml
+
 ##
 # `ansible-test sanity`
 # Single job tests multiple Python versions
