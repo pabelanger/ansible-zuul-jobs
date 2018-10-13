@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+    - name: Executor validate-dco-license role
+      include_role:
+        name: validate-dco-license
