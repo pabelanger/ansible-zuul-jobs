@@ -2,3 +2,6 @@
     templates:
       - ansible-python-jobs
       - build-tox-docs
+    check:
+      jobs:
+        - dco-license
