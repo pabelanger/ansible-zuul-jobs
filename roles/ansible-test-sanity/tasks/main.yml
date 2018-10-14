@@ -43,7 +43,6 @@
     path: "{{ ansible_user_dir }}/{{ ansible_path }}/{{ item.path }}"
     state: "{{ item.state|default('directory') }}"
   with_items:
-    - { path: "role-to-test" }
     - { path: "lib/ansible/modules/galaxy/" }
     - { path: "lib/ansible/modules/galaxy/__init__.py", state: touch }
     - { path: "lib/ansible/module_utils/galaxy/" }
@@ -51,8 +50,8 @@
     - { path: "lib/ansible/plugins/from_galaxy/" }
     - { path: "lib/ansible/plugins/from_galaxy/__init__.py", state: touch }
 
-- name: Copy role into ansible/role-to-test
-  shell: "cp -a {{ ansible_user_dir }}/{{ zuul.project.src_dir }}/* {{ ansible_path }}/role-to-test/"
+- name: Symlink role into ansible/role-to-test
+  shell: "ln -s {{ ansible_user_dir }}/{{ zuul.project.src_dir }}/ {{ ansible_path }}/role-to-test/"
 
 - name: Move certain files to know locations so correct tests are run
   shell: "mv {{ ansible_path }}/role-to-test//{{ item.src }} {{ ansible_path }}/{{ item.dest }}"
@@ -62,13 +61,6 @@
     - { src: "lib/*/plugins/*", dest: "/lib/ansible/plugins/from_galaxy/"}
     - { src: "lib/*", dest: "/lib/ansible/module_utils/galaxy/"} # FIXME maybe rename this?
   ignore_errors: yes
-
-- name: Show what has been copied ontop of Ansible checkout
-  shell: "git status -uall"
-  args:
-    chdir: "{{ ansible_path }}"
-  ignore_errors: yes
-# TEMPORARY: END
 
 ###
 # Run ansible-test
