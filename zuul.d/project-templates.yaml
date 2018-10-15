@@ -34,12 +34,10 @@
       Runs tox docs jobs without publishing.
     check:
       jobs:
-        - tox-docs:
-            nodeset: fedora-latest-1vcpu
+        - tox-docs
     gate:
       jobs:
-        - tox-docs:
-            nodeset: fedora-latest-1vcpu
+        - tox-docs
 
 - project-template:
     name: ansible-python-jobs
@@ -47,12 +45,10 @@
       Runs Ansible PTI jobs for python.
     check:
       jobs:
-        - tox-linters:
-            nodeset: fedora-latest-1vcpu
+        - tox-linters
     gate:
       jobs:
-        - tox-linters:
-            nodeset: fedora-latest-1vcpu
+        - tox-linters
 
 - project-template:
     name: ansible-role-release-jobs
