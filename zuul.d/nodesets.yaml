@@ -21,3 +21,17 @@
     nodes:
       - name: fedora-28
         label: ansible-fedora-28-4vcpu
+
+# TODO(pabelanger): Rename these to be fedora-latest once we are sure
+# jobs work as expected.
+- nodeset:
+    name: fedora-29-1vcpu
+    nodes:
+      - name: fedora-29
+        label: ansible-fedora-29-1vcpu
+
+- nodeset:
+    name: fedora-29-4vcpu
+    nodes:
+      - name: fedora-29
+        label: ansible-fedora-29-4vcpu
